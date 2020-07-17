@@ -5,7 +5,7 @@
 
 1. User 1 chooses to be X or O
 
-![Tic Tac Toe Board](images/board-example.PNG)
-
 
 2. Select 1-9 to place your X or O
+
+![Tic Tac Toe Board](images/board-example.PNG)
