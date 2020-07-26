@@ -42,17 +42,34 @@ def playerChoice():
 def position(user):
     global board
     pos = input("Place your marker(1-9): ")
-    board[int(pos)] = user
+    # Stops overwriting other user spaces or choosing the same space twice
+    if board[int(pos)] == Xpos:
+        print("This space is unavailable. Please pick again")
+        position(user)
+    elif board[int(pos)] == Opos:
+        print("This space is unavailable. Please pick again")
+        position(user)
+    else:
+        board[int(pos)] = user
     printBoard()
 
 
 # Checks every possible win outcome per user
 def evaluate(user, b):
+    space_count = 0
+    # Checks for available spaces on board
+    for keys in b:
+        if b[keys] == " ":
+            space_count =+1
     if ((b[1] == b[2] == b[3] == user) or b[4] == b[5] == b[6] == user) or (b[7] == b[8] == b[9] == user) or (
             b[1] == b[4] == b[7] == user) or (b[2] == b[5] == b[8] == user) or (b[3] == b[6] == b[9] == user) or (
             b[1] == b[5] == b[9] == user) or (b[3] == b[5] == b[7] == user):
         txt = "{} wins!!!".format(user)
         print(txt)
+        return False
+    #If no more spaces, end game as a draw
+    elif space_count == 0:
+        print("No more available spaces. It is a draw")
         return False
     return True
 
