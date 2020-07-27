@@ -43,7 +43,10 @@ def position(user):
     global board
     pos = input("Place your marker(1-9): ")
     # Stops overwriting other user spaces or choosing the same space twice
-    if board[int(pos)] == Xpos:
+    if int(pos) not in range(1, 9):
+        print("Value is not in 1-9. Please pick again")
+        position(user)
+    elif board[int(pos)] == Xpos:
         print("This space is unavailable. Please pick again")
         position(user)
     elif board[int(pos)] == Opos:
