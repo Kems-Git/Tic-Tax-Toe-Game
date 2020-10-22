@@ -4,9 +4,9 @@
 ## Installation
 Clone the repository below:
 
-'''bash
+```bash
 git clone https://github.com/Kems-Git/Tic-Tax-Toe-Game
-'''
+```
 
 
 ## How to Play:
